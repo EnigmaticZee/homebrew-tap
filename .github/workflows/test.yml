@@ -1,0 +1,23 @@
+name: Test install
+# Installs the cask on a clean Mac the way users do, checks the app landed, then removes it.
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, to catch a broken release download
+jobs:
+  install:
+    runs-on: macos-15
+    steps:
+      - name: Install Paws Off with Homebrew
+        run: brew install --cask enigmaticzee/tap/paws-off
+      - name: Check the app
+        run: |
+          test -d "/Applications/Paws Off.app"
+          defaults read "/Applications/Paws Off.app/Contents/Info" CFBundleShortVersionString
+          codesign --verify --deep "/Applications/Paws Off.app"
+          brew info --cask enigmaticzee/tap/paws-off
+      - name: Uninstall
+        run: |
+          brew uninstall --cask --zap enigmaticzee/tap/paws-off
+          test ! -d "/Applications/Paws Off.app"
