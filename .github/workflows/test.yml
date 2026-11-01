@@ -21,3 +21,19 @@ jobs:
         run: |
           brew uninstall --cask --zap enigmaticzee/tap/paws-off
           test ! -d "/Applications/Paws Off.app"
+  burnish:
+    runs-on: macos-15
+    steps:
+      - name: Install Burnish with Homebrew
+        run: brew install --cask enigmaticzee/tap/burnish
+      - name: Check the app
+        run: |
+          test -d /Applications/Burnish.app
+          defaults read /Applications/Burnish.app/Contents/Info CFBundleShortVersionString
+          codesign --verify --deep /Applications/Burnish.app
+          spctl -a -t exec /Applications/Burnish.app
+          brew info --cask enigmaticzee/tap/burnish
+      - name: Uninstall
+        run: |
+          brew uninstall --cask --zap enigmaticzee/tap/burnish
+          test ! -d /Applications/Burnish.app
