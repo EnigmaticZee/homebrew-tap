@@ -17,8 +17,7 @@ cask "paws-off" do
   ]
 
   caveats <<~EOS
-    Paws Off isn't notarized by Apple yet. If macOS won't open it, go to
-    System Settings → Privacy & Security and click "Open Anyway".
-    Then grant it Accessibility access so it can pause your keyboard.
+    Open Paws Off from Applications, then grant it Accessibility access so it
+    can pause your keyboard.
   EOS
 end
