@@ -2,10 +2,10 @@ cask "paws-off" do
   version :latest
   sha256 :no_check
 
-  url "https://github.com/EnigmaticZee/PawsOff/releases/latest/download/PawsOff-mac.dmg"
+  url "https://github.com/EnigmaticZee/PawsOff-site/releases/latest/download/PawsOff-mac.dmg"
   name "Paws Off"
   desc "Pause your keyboard with one click, for cleaning it or keeping pets off it"
-  homepage "https://github.com/EnigmaticZee/PawsOff"
+  homepage "https://enigmaticzee.github.io/PawsOff-site/"
 
   auto_updates true
   depends_on macos: ">= :sonoma"
