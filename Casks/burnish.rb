@@ -5,7 +5,7 @@ cask "burnish" do
   url "https://github.com/EnigmaticZee/Burnish/releases/latest/download/Burnish.dmg"
   name "Burnish"
   desc "Menu bar app that finds and installs updates for other apps"
-  homepage "https://enigmaticzee.github.io/Burnish/"
+  homepage "https://www.getburnish.app/"
 
   depends_on macos: :sonoma
 
